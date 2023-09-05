@@ -3,10 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "nodemon": "^3.0.1",
+    "style-loader": "^3.3.3"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "apollo": "^2.34.0",
+    "ciphyr": "^1.0.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "graphql": "^16.8.0",
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "server": "^1.0.38",
+    "styled-components": "^6.0.7"
+  }
 }
