@@ -4,10 +4,17 @@
 // const resolvers = require('./graphql/resolvers');
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { expressMiddleware } from '@apollo/server/express4';
 import { typeDefs } from './schema.js';
 import { resolvers } from './resolvers.js';
+// import { startStandaloneServer } from '@apollo/server/standalone';
 
 const app = express();
+
+// const PORT = await startStandaloneServer(server, {
+//   listen: { port: 4000 },
+// });
 
 // Custom middleware example
 app.use((req, res, next) => {
@@ -21,10 +28,14 @@ const server = new ApolloServer({
 });
 
 // Apply Apollo Server's middleware after your custom middleware
-server.applyMiddleware({ app });
+// server.applyMiddleware({ app });
 
-const PORT = process.env.PORT || 4000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 4000 },
 });
+
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
+console.log(`server ready at port, 4000`);

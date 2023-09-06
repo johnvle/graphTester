@@ -6,7 +6,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 // ! means required true
 export const typeDefs = `#graphql
   type User {
-    id: ID!
+    id: ID
     username: String!
     email: String! 
     password: String! 
@@ -32,12 +32,22 @@ export const typeDefs = `#graphql
   }
   type Query {
     users: [User]
-    user(id: ID!): user
+    user(id: ID!): User
     reviews: [Review]
     review(id: ID!): Review
     games: [Game]
     game(id: ID!): Game
     authors: [Author]
     author(id: ID!): Author
+  }
+  type Mutation {
+    addUser(user: AddUserInput!): User
+    # deleteUser(id: ID!): [Game]
+    # updateGame(id: ID!, edits: EditGameInput!): Game
+  }
+  input AddUserInput {
+    username: String!
+    email: String! 
+    password: String! 
   }
 `;
