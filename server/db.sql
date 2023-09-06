@@ -12,14 +12,14 @@ CREATE TABLE author (
 );
 
 CREATE TABLE game (
-"game_id" SERIAL PRIMARY KEY,
-"title" VARCHAR(255),
+    "game_id" SERIAL PRIMARY KEY,
+    "title" VARCHAR(255),
 );
 
 CREATE TABLE review (
-"id" SERIAL PRIMARY KEY,
-"rating" INT,
-"content" VARCHAR(255),
-"game_id" INTEGER REFERENCES game(game_id),
-"author_id" INTEGER REFERENCES author(author_id),
+    "id" SERIAL PRIMARY KEY,
+    "rating" INT,
+    "content" VARCHAR(255),
+    "game_id" INTEGER REFERENCES game(game_id),
+    "author_id" INTEGER REFERENCES author(author_id),
 );

@@ -1,5 +1,6 @@
+import pkg from 'pg';
 
-const { Pool } = require('pg');
+const { Pool } = pkg;
 
 const PG_URI =
    'postgres://bhszlgbk:zuzE1pauHpwZIV6iAPydMfKOhb1p8rYx@berry.db.elephantsql.com/bhszlgbk';
@@ -8,12 +9,18 @@ const PG_URI =
 const pool = new Pool({
   connectionString: PG_URI,
 });
-
-
-module.exports = {
+const db = {
   query: (text, params, callback) => {
     return pool.query(text, params, callback);
   },
-};
+}
+
+// export default {
+//   query: (text, params, callback) => {
+//     return pool.query(text, params, callback);
+//   },
+// };
+
+export default db;
 
 

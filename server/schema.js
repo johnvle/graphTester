@@ -31,6 +31,7 @@ export const typeDefs = `#graphql
     author: Author!
   }
   type Query {
+    users: [User]
     user(id: ID!): user
     reviews: [Review]
     review(id: ID!): Review
@@ -39,4 +40,4 @@ export const typeDefs = `#graphql
     authors: [Author]
     author(id: ID!): Author
   }
-`
+`;
